@@ -9,6 +9,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "@finos/perspective-viewer/dist/css/themes.css";
+import "@finos/perspective-viewer-datagrid/dist/css/perspective-viewer-datagrid.css";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
