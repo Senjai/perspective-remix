@@ -1,5 +1,7 @@
 import perspective, { type Table, type TableData } from "@finos/perspective";
 import "@finos/perspective-viewer";
+import "@finos/perspective-viewer-datagrid";
+import "@finos/perspective-viewer-d3fc";
 import { type HTMLPerspectiveViewerElement } from "@finos/perspective-viewer";
 import { useEffect, useId, useRef } from "react";
 
@@ -32,7 +34,6 @@ export function PerspectiveViewer({ data }: { data: TableData }) {
     }
   }, [data]);
 
-  // return <perspective-viewer id={id} suppressHydrationWarning />;
   return (
     <perspective-viewer
       id={id}
