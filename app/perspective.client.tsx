@@ -3,6 +3,8 @@ import "@finos/perspective-viewer";
 import { type HTMLPerspectiveViewerElement } from "@finos/perspective-viewer";
 import { useEffect, useId, useRef } from "react";
 
+import "~/styles/perspective.css";
+
 export function PerspectiveViewer({ data }: { data: TableData }) {
   const id = useId();
   const ref = useRef<null | Table>(null);
@@ -25,6 +27,7 @@ export function PerspectiveViewer({ data }: { data: TableData }) {
       const table = await worker.table(data);
 
       el.load(table);
+      el.restore({settings: true, plugin_config: {editable: true}})
       ref.current = table;
     }
   }, [data]);
@@ -33,8 +36,6 @@ export function PerspectiveViewer({ data }: { data: TableData }) {
   return (
     <perspective-viewer
       id={id}
-      style={{ width: 500, height: 500 }}
-      theme="Pro"
     />
   );
 }
